@@ -1,0 +1,128 @@
+{
+  "nomApp": "Cas Zéro",
+  "sousTitre": "Simulateur de cas cliniques",
+  "accroche": "Interrogez, examinez, prescrivez. Chaque décision compte sur votre score.",
+  "boutonCommencer": "Commencer le cas",
+  "boutonEnvoyer": "Envoyer",
+  "boutonAide": "Besoin d'aide ?",
+  "boutonContinuer": "Continuer",
+  "boutonRejouer": "Rejouer le cas",
+  "boutonVoirReponse": "Voir la réponse",
+  "labelScore": "Score",
+  "labelMeilleurScore": "Meilleur score",
+  "labelScoreFinal": "Score final",
+  "labelEtape": "Étape",
+  "etapesCourtes": ["Anamnèse", "Examen Physique", "Paraclinique", "Diagnostic", "Traitement", "Débriefing"],
+  "placeholders": {
+    "etape1_anamnese": "Posez une question à la famille…",
+    "etape2_examen_physique": "Quel examen réalisez-vous ?",
+    "etape3_paraclinique": "Ex. : les examens que vous demandez…",
+    "etape4_diagnostic": "Votre diagnostic…",
+    "etape5_traitement": "Votre prise en charge…"
+  },
+  "consignes": {
+    "etape1_anamnese": "Interrogez la famille pour reconstituer l'histoire de la maladie.",
+    "etape2_examen_physique": "Les constantes et l'examen des systèmes sont disponibles. Demandez l'examen qui manque.",
+    "etape3_paraclinique": "Quels examens complémentaires demandez-vous en urgence ?",
+    "etape4_diagnostic": "Quel est votre diagnostic précis ?",
+    "etape5_traitement": "Décrivez votre prise en charge thérapeutique."
+  },
+  "libellesConstantes": {
+    "tension": "Tension",
+    "frequenceCardiaque": "Fréq. cardiaque",
+    "frequenceRespiratoire": "Fréq. respiratoire",
+    "saturation": "Saturation",
+    "temperature": "Température",
+    "glycemieCapillaire": "Glycémie capillaire"
+  },
+  "constantesParDefaut": {
+    "tension": "120/80 mmhg",
+    "frequenceCardiaque": "80 bpm",
+    "frequenceRespiratoire": "16 cpm",
+    "saturation": "98% en air ambiant",
+    "temperature": "37,0 °C",
+    "glycemieCapillaire": "100 mg/dl"
+  },
+  "libellesBlocs": {
+    "constantes": "Constantes",
+    "examenGeneral": "Examen général",
+    "examenSystemes": "Examen des systèmes",
+    "examenNeurologique": "Examen neurologique",
+    "nonRealise": "Non réalisé"
+  },
+  "libellesMeta": {
+    "difficulte": "Difficulté",
+    "dureeEstimee": "Durée estimée"
+  },
+  "libellesMessages": {
+    "famille": "Famille",
+    "resultat": "Résultat",
+    "indice": "Indice"
+  },
+  "libellesDebrief": {
+    "detailScore": "Détail du score",
+    "aucunePenalite": "Aucune pénalité : parcours sans faute.",
+    "informationsManquees": "Informations non recueillies",
+    "pointsCles": "À retenir"
+  },
+  "journal": {
+    "aide": "Indice utilisé",
+    "neuroOublie": "Examen neurologique oublié",
+    "examenInutile": "Examen inutile",
+    "diagnosticManque": "Diagnostic non trouvé",
+    "erreurFatale": "Erreur fatale"
+  },
+  "moniteur": {
+    "titre": "Moniteur des signes vitaux",
+    "ordre": ["frequenceCardiaque", "tension", "saturation", "frequenceRespiratoire", "temperature", "glycemieCapillaire"],
+    "libelles": {
+      "frequenceCardiaque": "FC",
+      "tension": "TA",
+      "saturation": "SpO₂",
+      "frequenceRespiratoire": "FR",
+      "temperature": "T°",
+      "glycemieCapillaire": "Glyc."
+    },
+    "unites": {
+      "frequenceCardiaque": "bpm",
+      "tension": "mmHg",
+      "saturation": "%",
+      "frequenceRespiratoire": "cpm",
+      "temperature": "°C",
+      "glycemieCapillaire": "mg/dl"
+    }
+  },
+  "messages": {
+    "questionNonReconnue": "La famille ne sait pas répondre à cela. Reformulez : début, symptômes, médicaments, fièvre…",
+    "informationDejaObtenue": "Vous avez déjà obtenu cette information.",
+    "essentielRecueilli": "Vous avez l'essentiel de l'histoire. Vous pouvez continuer ou poser d'autres questions.",
+    "toutRevele": "Vous avez recueilli toute l'histoire. Vous pouvez passer à l'étape suivante.",
+    "examenNonReconnu": "Précisez l'examen à réaliser.",
+    "examenNeuroDemande": "Examen neurologique réalisé.",
+    "examenNeuroOublie": "Oubli de l'examen neurologique : -{points} points.",
+    "examenDejaFait": "Cet examen a déjà été réalisé.",
+    "examenNonPrioritaire": "Examen raisonnable mais non prioritaire ici : aucun résultat n'est disponible dans ce cas.",
+    "examenInutile": "Examen non prioritaire dans cette situation : -{points} points.",
+    "prerequisPenalite": "Prérequis non respecté : -{points} points.",
+    "bilanComplet": "Bilan paraclinique complet. Les examens prioritaires sont réalisés.",
+    "diagnosticTrouve": "Diagnostic validé :",
+    "diagnosticDejaTrouve": "Ce diagnostic est déjà validé.",
+    "diagnosticIncorrect": "Diagnostic non reconnu. Relisez les résultats du LCR et de la goutte épaisse.",
+    "diagnosticsComplets": "Les deux atteintes sont identifiées.",
+    "diagnosticsReponse": "Diagnostics attendus :",
+    "diagnosticsPenalite": "Diagnostic(s) non trouvé(s) par vous : -{points} points.",
+    "traitementTrouve": "Élément validé :",
+    "traitementPartiel": "Prise en charge incomplète. Vérifiez qu'elle couvre à la fois le paludisme et la méningite.",
+    "traitementComplet": "Prise en charge validée : antipaludique et antibiothérapie.",
+    "traitementNonReconnu": "Aucun traitement reconnu dans votre réponse.",
+    "aideUtilisee": "Indice utilisé : -{points} points.",
+    "erreurFataleTitre": "Erreur fatale : -{points} points"
+  },
+  "mentions": [
+    { "min": 90, "texte": "Excellent raisonnement clinique" },
+    { "min": 70, "texte": "Bonne prise en charge" },
+    { "min": 40, "texte": "À consolider" },
+    { "min": 0, "texte": "À revoir : rejouez le cas" }
+  ],
+  "erreurChargement": "Impossible de charger le cas clinique. Ouvrez l'application depuis un serveur web (Vercel ou npx serve)."
+}

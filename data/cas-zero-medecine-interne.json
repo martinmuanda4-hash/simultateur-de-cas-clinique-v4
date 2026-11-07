@@ -1,0 +1,178 @@
+{
+  "id": "cas-zero-medecine-interne",
+  "titre": "Alerte aux Urgences : Fléchissement de la conscience",
+  "specialite": "Médecine Interne",
+  "scoreInitial": 100,
+  "metadonnees": {
+    "difficulte": "Intermédiaire",
+    "dureeEstimee": "10 minutes"
+  },
+  "regles": {
+    "penaliteAide": 2,
+    "tentativesDiagnosticAvantReponse": 3
+  },
+  "introduction": {
+    "titre": "Aperçu",
+    "description": "Les informations initiales du dossier sont disponibles : lieu de prise en charge, contexte de la consultation, motif de consultation et constantes vitales.",
+    "lieu": "Service des Urgences",
+    "contexte": "Patiente de 29 ans, emmenée par sa famille pour évaluation d'un fléchissement de l'état de conscience. Sans antécédents morbides connus.",
+    "motifConsultation": "Fléchissement de l'état de conscience",
+    "libelles": {
+      "lieu": "Lieu de prise en charge",
+      "contexte": "Contexte de la consultation",
+      "motifConsultation": "Motif de consultation",
+      "constantes": "Constantes"
+    }
+  },
+  "etapes": {
+    "etape1_anamnese": {
+      "titre": "Anamnèse et Histoire",
+      "presentationInitiale": "Patiente de 29 ans, emmenée par sa famille pour fléchissement de l'état de conscience. Sans antécédents morbides connus.",
+      "reponsesAttendues": {
+        "motsCles": ["debut", "histoire", "symptomes", "cepha", "medicament", "ains", "fievre", "agitation"],
+        "revelationProgressive": "L'histoire remonte à 5 jours par des céphalées pour lesquelles la patiente s'est automédiquée avec des AINS. L'évolution a été marquée par l'aggravation des céphalées, une fièvre modérée sans horaires précis et une agitation. Elle a reçu du midazolam à domicile avant son transfert. Pas de vomissements, pas de convulsions.",
+        "questionsGenerales": ["racontez", "raconter", "expliquez", "que s est il passe", "que se passe", "pourquoi"],
+        "revelations": [
+          {
+            "theme": "debut",
+            "essentiel": true,
+            "motsCles": ["debut", "histoire", "cepha", "maux de tete", "douleur", "depuis", "commence", "ains", "automedication", "anti inflammatoire", "medicament", "traitement"],
+            "texte": "L'histoire remonte à 5 jours par des céphalées pour lesquelles la patiente s'est automédiquée avec des AINS."
+          },
+          {
+            "theme": "evolution",
+            "essentiel": true,
+            "motsCles": ["evolution", "evolue", "symptomes", "fievre", "temperature", "agitation", "agite", "aggravation"],
+            "texte": "L'évolution a été marquée par l'aggravation des céphalées, une fièvre modérée sans horaires précis et une agitation."
+          },
+          {
+            "theme": "traitement_domicile",
+            "essentiel": true,
+            "motsCles": ["medicament", "midazolam", "domicile", "traitement", "sedatif", "calmant", "transfert"],
+            "texte": "Elle a reçu du midazolam à domicile avant son transfert."
+          },
+          {
+            "theme": "signes_negatifs",
+            "essentiel": false,
+            "motsCles": ["vomissement", "vomi", "convulsion", "crise", "epilep"],
+            "texte": "Pas de vomissements, pas de convulsions."
+          }
+        ]
+      },
+      "aide": "Demandez à la famille comment la maladie a débuté ou s'il y a eu une prise de médicaments à domicile."
+    },
+    "etape2_examen_physique": {
+      "titre": "Examen Physique",
+      "constantes": {
+        "tension": "112/76 mmhg",
+        "frequenceCardiaque": "86 bpm",
+        "frequenceRespiratoire": "20 cpm",
+        "saturation": "97% en air ambiant",
+        "temperature": "38,9 °C",
+        "glycemieCapillaire": "110 mg/dl"
+      },
+      "examenGeneral": "Conjonctives palpébrales bien colorées, conjonctives bulbaires anictériques. Aires ganglionnaires superficielles libres. Hydratation : muqueuse buccale et langue humides, pas de pli cutané.",
+      "examenSystemes": "Cœur : bruits cardiaques audibles et réguliers à 86 bpm. Poumons : murmure vésiculaire pur. Abdomen : non ballonné, souple, dépressible sans organomégalie. Membres inférieurs : eutrophiques sans œdèmes.",
+      "examenNeurologique": {
+        "demandeRequise": ["neurologique", "neuro", "glasgow", "nuque", "raideur"],
+        "resultats": "Patiente en coma, agitée avec un score de Glasgow à 12/15, nuque raide, signe de Brudzinski négatif.",
+        "malusSiOubli": 10
+      },
+      "aide": "N'oubliez pas de vérifier les constantes vitales et de faire un examen neurologique complet (raideur de nuque, score de Glasgow)."
+    },
+    "etape3_paraclinique": {
+      "titre": "Bilan Paraclinique",
+      "question": "Quels examens complémentaires demandez-vous en urgence ?",
+      "examensValides": {
+        "imagerie_cerebrale": {
+          "libelle": "Imagerie cérébrale",
+          "groupeAlternatif": "exclusion_engagement",
+          "motsCles": ["scanner", "tdm", "irm", "imagerie", "tomodensitometrie", "scan"],
+          "resultat": "Pas d'effet de masse, pas de signe d'engagement cérébral."
+        },
+        "fond_oeil": {
+          "libelle": "Fond d'œil",
+          "groupeAlternatif": "exclusion_engagement",
+          "motsCles": ["fond d oeil", "fond oeil", "fo", "fundus", "fundoscopie", "ophtalmoscopie", "papille", "oedeme papillaire"],
+          "resultat": "Pas d'œdème papillaire."
+        },
+        "ponction_lombaire": {
+          "libelle": "Ponction lombaire",
+          "motsCles": ["pl", "ponction", "lombaire", "lcr"],
+          "prerequis": {
+            "groupe": "exclusion_engagement",
+            "malus": 10,
+            "libelleJournal": "Ponction lombaire sans exclure un engagement cérébral",
+            "message": "Avant toute ponction lombaire, il faut éliminer un engagement cérébral : demandez d'abord une imagerie cérébrale ou, à défaut, un fond d'œil."
+          },
+          "resultat": "LCR clair, coulant goutte à goutte. Cytologie : 57 éléments/mm³ (N 72%, L 28%). Biochimie : protéines à 19,32 mg/dl, glucose à 65,9 mg/dl (glycémie concomitante à 124 mg/dl)."
+        },
+        "goutte_epaisse": {
+          "libelle": "Goutte épaisse",
+          "motsCles": ["ge", "goutte", "epaisse", "frottis", "palu"],
+          "resultat": "Goutte épaisse : Positive à Plasmodium falciparum."
+        }
+      },
+      "examensAcceptables": [
+        {
+          "nom": "Bilan sanguin standard",
+          "motsCles": ["nfs", "fns", "hemogramme", "numeration", "formule sanguine", "ionogramme", "creatinine", "uree", "crp", "bilan biologique"],
+          "malus": 0
+        },
+        {
+          "nom": "Glycémie capillaire",
+          "motsCles": ["glycemie", "dextro", "hgt"],
+          "resultat": "Glycémie capillaire déjà réalisée : 110 mg/dl.",
+          "malus": 0
+        }
+      ],
+      "malusExamenInutile": 10,
+      "aide": "Face à un syndrome méningé fébrile avec troubles de la conscience en zone d'endémie, deux examens invasifs et biologiques sont prioritaires. Avant toute ponction lombaire, il faut éliminer un risque d'engagement cérébral."
+    },
+    "etape4_diagnostic": {
+      "titre": "Poser le Diagnostic",
+      "question": "Quel est votre diagnostic précis ?",
+      "diagnosticsAttendus": [
+        {
+          "nom": "Méningo-encéphalite",
+          "points": 10,
+          "motsCles": ["meningo", "encephalite", "meningite", "meninge"]
+        },
+        {
+          "nom": "Paludisme grave",
+          "points": 10,
+          "motsCles": ["paludisme", "palu", "plasmodium", "malaria", "neuropalu"]
+        }
+      ],
+      "aide": "Il y a une double atteinte. L'une est liée au LCR cellulaire, l'autre à la positivité de la goutte épaisse avec critère neurologique."
+    },
+    "etape5_traitement": {
+      "titre": "Prise en Charge Thérapeutique",
+      "traitementsObligatoires": ["artisunate", "quinine", "ceftriaxone", "antibiotique"],
+      "groupesTraitement": [
+        {
+          "libelle": "Antipaludique",
+          "motsCles": ["artisunate", "artesunate", "artesunat", "quinine"]
+        },
+        {
+          "libelle": "Antibiotique",
+          "motsCles": ["ceftriaxone", "antibiotique", "antibio", "rocephine"]
+        }
+      ],
+      "erreursFatales": {
+        "motsCles": ["midazolam", "diazepam", "sedation", "sedatif", "ignorer pl"],
+        "punition": 30,
+        "message": "Erreur fatale : Ré-administrer des sédatifs sans contrôle des voies aériennes ou ignorer la suspicion de méningite bactérienne aggrave immédiatement le patient."
+      }
+    },
+    "etape6_debriefing": {
+      "titre": "Débriefing Pédagogique",
+      "pointsCles": [
+        "Piège des AINS : L'automédication a masqué l'évolution initiale de l'infection.",
+        "Danger du Midazolam : Donner un sédatif à domicile sur un cerveau en souffrance a aggravé le fléchissement de la conscience.",
+        "Règle d'or : Une goutte épaisse positive n'exclut jamais une méningite bactérienne ou virale associée (co-infection).",
+        "Sécurité de la PL : Éliminer un engagement cérébral (imagerie, à défaut fond d'œil) avant toute ponction lombaire."
+      ]
+    }
+  }
+}
