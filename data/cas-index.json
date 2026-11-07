@@ -1,1 +1,6 @@
+{
+  "cas": [
+    { "id": "cas-zero-medecine-interne", "fichier": "data/cas-zero-medecine-interne.json" }
+  ]
+}
 
